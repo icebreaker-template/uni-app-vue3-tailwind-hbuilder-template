@@ -1,5 +1,5 @@
+import path from "path";
 import { defineConfig } from "vite";
-
 import uni from "@dcloudio/vite-plugin-uni";
 import vwt from "weapp-tailwindcss-webpack-plugin/vite";
 import postcssWeappTailwindcssRename from "weapp-tailwindcss-webpack-plugin/postcss";
@@ -8,7 +8,7 @@ const isH5 = process.env.UNI_PLATFORM === "h5";
 
 // vite 插件配置
 const vitePlugins = [uni()];
-const path = require("path");
+
 const resolve = (p) => {
   return path.resolve(__dirname, p);
 };

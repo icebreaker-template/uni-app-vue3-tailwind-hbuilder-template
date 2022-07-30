@@ -4,7 +4,7 @@ const resolve = (p) => {
 };
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./**/*.{html,js,ts,jsx,tsx,vue}"].map(resolve),
+  content: ["./index.html", "./**/*.vue"].map(resolve),
   theme: {
     extend: {},
   },
