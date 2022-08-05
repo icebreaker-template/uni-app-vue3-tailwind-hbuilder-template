@@ -3,8 +3,9 @@ import { defineConfig } from "vite";
 import uni from "@dcloudio/vite-plugin-uni";
 import vwt from "weapp-tailwindcss-webpack-plugin/vite";
 import postcssWeappTailwindcssRename from "weapp-tailwindcss-webpack-plugin/postcss";
-
+// 注意： 打包成 h5 和 app 都不需要开启插件配置
 const isH5 = process.env.UNI_PLATFORM === "h5";
+const isApp = process.env.UNI_PLATFORM === "app";
 
 // vite 插件配置
 const vitePlugins = [uni()];
@@ -19,7 +20,7 @@ const postcssPlugins = [
     config: resolve("./tailwind.config.js"),
   }),
 ];
-if (!isH5) {
+if (!isH5 && !isApp) {
   vitePlugins.push(vwt());
   postcssPlugins.push(postcssWeappTailwindcssRename({}));
 }
