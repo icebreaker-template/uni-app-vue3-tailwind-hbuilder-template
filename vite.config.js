@@ -22,6 +22,13 @@ const postcssPlugins = [
 ];
 if (!WeappTailwindcssDisabled) {
   vitePlugins.push(vwt());
+  postcssPlugins.push(
+    require("postcss-rem-to-responsive-pixel")({
+      rootValue: 32,
+      propList: ["*"],
+      transformUnit: "rpx",
+    })
+  );
   postcssPlugins.push(postcssWeappTailwindcssRename({}));
 }
 // https://vitejs.dev/config/
