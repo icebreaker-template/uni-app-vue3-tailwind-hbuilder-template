@@ -68,13 +68,15 @@ const cardsColor = ref([
 const disabled = ref(true);
 
 const themeRef = ref(uni.getSystemInfoSync().theme);
-
+// #ifdef MP
 uni.onThemeChange(({ theme }: { theme: 'dark' | 'light' }) => {
   themeRef.value = theme;
 });
-
+// #endif
 onBeforeUnmount(() => {
+  // #ifdef MP
   uni.offThemeChange(() => {});
+  // #endif
 });
 </script>
 
