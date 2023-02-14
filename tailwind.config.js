@@ -6,7 +6,11 @@ const resolve = (p) => {
 module.exports = {
   content: ["./index.html", "./**/*.vue"].map(resolve),
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#18db9e'
+      }
+    },
   },
   plugins: [],
   corePlugins: {
