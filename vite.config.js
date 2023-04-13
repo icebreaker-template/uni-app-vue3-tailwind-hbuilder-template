@@ -1,7 +1,7 @@
 import path from "path";
 import { defineConfig } from "vite";
 import uni from "@dcloudio/vite-plugin-uni";
-import vwt from "weapp-tailwindcss-webpack-plugin/vite";
+import { UnifiedViteWeappTailwindcssPlugin as uvwt } from "weapp-tailwindcss-webpack-plugin/vite";
 // 注意： 打包成 h5 和 app 都不需要开启插件配置
 const isH5 = process.env.UNI_PLATFORM === "h5";
 const isApp = process.env.UNI_PLATFORM === "app";
@@ -20,7 +20,7 @@ const postcssPlugins = [
   }),
 ];
 if (!WeappTailwindcssDisabled) {
-  vitePlugins.push(vwt());
+  vitePlugins.push(uvwt());
   postcssPlugins.push(
     require("postcss-rem-to-responsive-pixel")({
       rootValue: 32,

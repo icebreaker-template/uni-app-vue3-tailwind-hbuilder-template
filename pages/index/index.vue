@@ -1,12 +1,12 @@
 <template>
   <view class="content">
     <view :class="'border-[#999] border-b-[6rpx]'">:border-[#999]</view>
-    <view :class="replaceJs('border-[#999] border-b-[6rpx]')">replaceJs('border-[#999] border-b-[6rpx]')</view>
+    <view :class="'border-[#999] border-b-[6rpx]'">:border-[#999] border-b-[6rpx]</view>
     <view class="border-[#999999] border-b-[6rpx]">border-[#999999] border-b-[6rpx]</view>
     <!-- <view :class="'border-[#999999]'">:border-[#999999]</view> -->
     <!-- <view :class="replaceJs('border-[#999999]')">replaceJs('border-[#999999]')</view> -->
     <view class="border-primary border">当前系统主题:{{ themeRef }}</view>
-    <view class="bg-gray-100 dark:bg-zinc-800 h-10 w-10" hover-class="bg-[#ffff00] dark:bg-green-500"></view>
+    <view class="bg-gray-100 dark:bg-zinc-800 h-10 w-10" hover-class="!bg-[#ffff00] !dark:bg-green-500"></view>
     <view class="h-5 w-5 shadow-[0px_2px_11px_0px_rgba(0,0,0,0.4)] before:content-['Festivus']"></view>
     <view class="h-5 w-5 shadow-[0px_2px_11px_0px_#00000a]"></view>
     <view class="text-[30px] dark:text-yellow-400">text-[22px]</view>
@@ -54,14 +54,14 @@
 
 
 <script setup lang="ts">
-import { replaceJs } from 'weapp-tailwindcss-webpack-plugin/replace';
+
 import { ref, onBeforeUnmount } from 'vue';
 const title = ref('测试标题');
 const flag = ref(true);
 
 const cardsColor = ref([
-  replaceJs('bg-[#4268EA] shadow-indigo-100'),
-  replaceJs('bg-[#123456] shadow-blue-100'),
+  'bg-[#4268EA] shadow-indigo-100',
+  'bg-[#123456] shadow-blue-100',
   'bg-green-500 shadow-green-100',
   'bg-cyan-500 shadow-cyan-100',
   'bg-amber-500 shadow-amber-100',
