@@ -7,7 +7,9 @@ const isH5 = process.env.UNI_PLATFORM === "h5";
 const isApp = process.env.UNI_PLATFORM === "app";
 const WeappTailwindcssDisabled = isH5 || isApp;
 // vite 插件配置
-const vitePlugins = [uni()];
+const vitePlugins = [uni(), uvwt({
+  disabled: WeappTailwindcssDisabled
+})];
 
 const resolve = (p) => {
   return path.resolve(__dirname, p);
@@ -20,7 +22,6 @@ const postcssPlugins = [
   }),
 ];
 if (!WeappTailwindcssDisabled) {
-  vitePlugins.push(uvwt());
   postcssPlugins.push(
     require("postcss-rem-to-responsive-pixel")({
       rootValue: 32,
