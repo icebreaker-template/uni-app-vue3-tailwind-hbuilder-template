@@ -1,11 +1,17 @@
 <template>
   <view class="content">
+    <view
+      class="bg-[url(https://pic1.zhimg.com/v2-3ee20468f54bbfefcd0027283b21aaa8_720w.jpg)] bg-[length:100%_100%] bg-no-repeat w-screen h-[41.54vw]">
+    </view>
+
+    <view class="after:content-['uni-app-vite-vue3-tailwind-vscode-template'] text-sky-400"></view>
+
+    <view class="text-gray-900/50 mb-2 before:content-['当前系统主题:']">
+      {{ themeRef }}
+    </view>
     <view :class="'border-[#999] border-b-[6rpx]'">:border-[#999]</view>
     <view :class="'border-[#999] border-b-[6rpx]'">:border-[#999] border-b-[6rpx]</view>
     <view class="border-[#999999] border-b-[6rpx]">border-[#999999] border-b-[6rpx]</view>
-    <!-- <view :class="'border-[#999999]'">:border-[#999999]</view> -->
-    <!-- <view :class="replaceJs('border-[#999999]')">replaceJs('border-[#999999]')</view> -->
-    <view class="border-primary border">当前系统主题:{{ themeRef }}</view>
     <view class="bg-gray-100 dark:bg-zinc-800 h-10 w-10" hover-class="!bg-[#ffff00] !dark:bg-green-500"></view>
     <view class="h-5 w-5 shadow-[0px_2px_11px_0px_rgba(0,0,0,0.4)] before:content-['Festivus']"></view>
     <view class="h-5 w-5 shadow-[0px_2px_11px_0px_#00000a]"></view>
@@ -67,8 +73,9 @@ const cardsColor = ref([
   'bg-amber-500 shadow-amber-100',
 ]);
 const disabled = ref(true);
-
-const themeRef = ref(uni.getSystemInfoSync().theme);
+const sysInfo = uni.getSystemInfoSync()
+console.log(sysInfo)
+const themeRef = ref(sysInfo.theme ?? 'light');
 // #ifdef MP
 uni.onThemeChange(({ theme }: { theme: 'dark' | 'light' }) => {
   themeRef.value = theme;
@@ -86,20 +93,10 @@ page {
   --primary-color-hex: #4268ea;
   --primary-color-bg: yellow;
 }
-
-page::before {
-  content: '';
-  @apply w-10 h-5 bg-green-500 inline-block;
-}
 </style>
 
 <style lang="scss" scoped>
 .test {
   @apply flex items-center justify-center h-[100px] w-[100px] rounded-[40px] bg-[#123456] bg-opacity-[0.54] text-[#ffffff] #{!important};
-}
-
-.content::before {
-  content: '';
-  @apply w-5 h-5 bg-red-500/50 inline-block;
 }
 </style>
