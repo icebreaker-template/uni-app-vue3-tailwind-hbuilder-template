@@ -9,6 +9,12 @@
     <view class="text-gray-900/50 mb-2 before:content-['当前系统主题:']">
       {{ themeRef }}
     </view>
+    <view class="mx-auto w-[500rpx] h-[500rpx] bg-gray-200 group flex justify-center items-center"
+      hover-class="bg-gray-400 tapped">
+      <view
+        class="w-[250rpx] h-[250rpx] bg-red-400 group-[.tapped]:bg-blue-400 text-white flex justify-center items-center text-xs text-center">
+        外部触发hover里面方块会变成蓝色</view>
+    </view>
     <view :class="'border-[#999] border-b-[6rpx]'">:border-[#999]</view>
     <view :class="'border-[#999] border-b-[6rpx]'">:border-[#999] border-b-[6rpx]</view>
     <view class="border-[#999999] border-b-[6rpx]">border-[#999999] border-b-[6rpx]</view>
