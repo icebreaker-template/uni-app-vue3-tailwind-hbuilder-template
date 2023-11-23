@@ -9,64 +9,32 @@
     <view class="text-gray-900/50 mb-2 before:content-['当前系统主题:']">
       {{ themeRef }}
     </view>
-    <view class="mx-auto w-[500rpx] h-[500rpx] bg-gray-200 group flex justify-center items-center"
+    <view class="mx-auto w-[240rpx] h-[240rpx] bg-gray-200 group flex justify-center items-center"
       hover-class="bg-gray-400 tapped">
       <view
-        class="w-[250rpx] h-[250rpx] bg-red-400 group-[.tapped]:bg-blue-400 text-white flex justify-center items-center text-xs text-center">
+        class="w-[120rpx] h-[120rpx] bg-red-400 group-[.tapped]:bg-blue-400 text-white flex justify-center items-center text-xs text-center">
         外部触发hover里面方块会变成蓝色</view>
     </view>
-    <view :class="'border-[#999] border-b-[6rpx]'">:border-[#999]</view>
-    <view :class="'border-[#999] border-b-[6rpx]'">:border-[#999] border-b-[6rpx]</view>
-    <view class="border-[#999999] border-b-[6rpx]">border-[#999999] border-b-[6rpx]</view>
-    <view class="bg-gray-100 dark:bg-zinc-800 h-10 w-10" hover-class="!bg-[#ffff00] !dark:bg-green-500"></view>
-    <view class="h-5 w-5 shadow-[0px_2px_11px_0px_rgba(0,0,0,0.4)] before:content-['Festivus']"></view>
-    <view class="h-5 w-5 shadow-[0px_2px_11px_0px_#00000a]"></view>
-    <view class="text-[30px] dark:text-yellow-400">text-[22px]</view>
-    <view class="text-[#bada55]">text-[#bada55]</view>
-    <view class="text-[var(--my-var)]">text-[var(--my-var)]</view>
-    <div class="text-[length:var(--my-var)]">...</div>
-    <div class="text-[color:var(--my-var)]">...</div>
-    <button class="!bg-green-500 !sr-onlytext-white" :class="{
-      'opacity-50': disabled,
-    }" :disabled="disabled">
-      disable
-    </button>
-    <view class="test">test</view>
+    <view class="test">apply示例</view>
     <view :key="v" class="h-[20px] w-[20px]" :class="v" v-for="(v, i) in cardsColor"></view>
-    <!-- <view :key="i" class="h-[20px] w-[20px]" :class="cardsColor[i - 1]" v-for="i in 5"></view> -->
-    <view class="w-2 h-2 bg-[#123456]"></view>
-    <view class="w-2 h-2 bg-blue-500/50"></view>
-    <view class="flex items-center justify-center w-screen h-screen">
-      <view class="!font-bold !text-[#990000]" :class="['text-2xl', { underline: true }]">{{ title }}</view>
-    </view>
-
-    <view class="text-area">
-      <text class="title h-[200%]">{{ title }}</text>
-    </view>
-    <view class="p-[20px] -mt-2 mb-[-20px]">p-[20px] -mt-2 mb-[-20px] margin的jit 可不能这么写 -m-[20px]</view>
-    <view class="space-y-[1.6rem]">
-      <view class="w-[300rpx] text-black text-opacity-[0.19]">w-[300rpx] text-black text-opacity-[0.19]</view>
-      <view class="min-w-[300rpx] max-h-[100px] text-[20px] leading-[0.9]">min-w-[300rpx] max-h-[100px] text-[20px]
-        leading-[0.9]</view>
-      <view class="max-w-[300rpx] min-h-[100px] text-[#dddddd]">max-w-[300rpx] min-h-[100px] text-[#dddddd]</view>
-      <view
-        class="flex items-center justify-center h-[100px] w-[100px] rounded-[40px] bg-[#123456] bg-opacity-[0.54] text-[#ffffff]"
-        :class="['text-[#123456]', flag ? 'bg-[#666600]' : 'bg-[#410000]']">Hello</view>
-      <view class="border-[10px] border-[#098765] border-solid border-opacity-[0.44]">border-[10px] border-[#098765]
-        border-solid border-opacity-[0.44]</view>
-      <view class="grid grid-cols-3 divide-x-[10px] divide-[#010101] divide-solid">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
+    <view>
+      <view class="ifdef-[MP-WEIXIN]:bg-blue-500 ifndef-[MP-WEIXIN]:bg-red-500">
+        样式的条件编译:微信小程序为蓝色，不是微信小程序为红色
       </view>
-      <view class="w-32 py-2 rounded-md font-semibold text-white bg-pink-500 ring-4 ring-pink-300"> Default </view>
+
+      <view class="wx:bg-blue-500 -wx:bg-red-500">
+        <view>自定义配置的方式进行样式条件编译</view>
+        <view>相关配置见根目录下的tailwind.config.js</view>
+      </view>
+
+      <view class="apply-class-0">@apply 条件编译方式0</view>
+      <view class="apply-class-1">@apply 条件编译方式1</view>
     </view>
   </view>
 </template>
 
 
 <script setup lang="ts">
-
 import { ref, onBeforeUnmount } from 'vue';
 const title = ref('测试标题');
 const flag = ref(true);
@@ -78,7 +46,7 @@ const cardsColor = ref([
   'bg-cyan-500 shadow-cyan-100',
   'bg-amber-500 shadow-amber-100',
 ]);
-const disabled = ref(true);
+
 const sysInfo = uni.getSystemInfoSync()
 console.log(sysInfo)
 const themeRef = ref(sysInfo.theme ?? 'light');
@@ -94,15 +62,17 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style lang="scss">
-page {
-  --primary-color-hex: #4268ea;
-  --primary-color-bg: yellow;
-}
-</style>
-
 <style lang="scss" scoped>
 .test {
   @apply flex items-center justify-center h-[100px] w-[100px] rounded-[40px] bg-[#123456] bg-opacity-[0.54] text-[#ffffff] #{!important};
+}
+// 注意: hbuilderx 格式化，可能会强行在这里加上空格，导致编译失败
+.apply-class-0 {
+  @apply ifdef-[MP-WEIXIN]:bg-blue-500 ifndef-[MP-WEIXIN]:bg-red-500;
+}
+
+.apply-class-1 {
+  // 这个需要在 tailwind.config.js 里进行自定义配置
+  @apply wx:bg-blue-500 -wx:bg-red-500;
 }
 </style>
