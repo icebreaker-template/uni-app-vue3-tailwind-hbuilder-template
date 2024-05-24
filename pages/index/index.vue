@@ -4,7 +4,12 @@
       class="bg-[url(https://pic1.zhimg.com/v2-3ee20468f54bbfefcd0027283b21aaa8_720w.jpg)] bg-[length:100%_100%] bg-no-repeat w-screen h-[41.54vw]">
     </view>
 
-    <view class="after:content-['uni-app-vite-vue3-tailwind-vscode-template'] text-sky-400"></view>
+    <view class="after:content-['uni-app-vite-vue3-tailwind-hbuilderx-template'] text-sky-400"></view>
+
+    <view class="text-slate-800">
+      <view>⚠️注意，请关闭微信开发者工具的代码热重载功能</view>
+      <view>否则可能会出现保持之后不起作用</view>
+    </view>
 
     <view class="text-gray-900/50 mb-2 before:content-['当前系统主题:']">
       {{ themeRef }}
@@ -66,6 +71,7 @@ onBeforeUnmount(() => {
 .test {
   @apply flex items-center justify-center h-[100px] w-[100px] rounded-[40px] bg-[#123456] bg-opacity-[0.54] text-[#ffffff] #{!important};
 }
+
 // 注意: hbuilderx 格式化，可能会强行在这里加上空格，导致编译失败
 .apply-class-0 {
   @apply ifdef-[MP-WEIXIN]:bg-blue-500 ifndef-[MP-WEIXIN]:bg-red-500;

@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/sonofmagic/uni-app-vue3-tailwind-hbuilder-template#readme",
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.33",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
     "postcss-rem-to-responsive-pixel": "^6.0.1",
-    "tailwindcss": "^3.4.1",
-    "weapp-tailwindcss": "^3.0.5"
+    "tailwindcss": "^3.4.3",
+    "weapp-tailwindcss": "^3.2.1"
   }
 }
