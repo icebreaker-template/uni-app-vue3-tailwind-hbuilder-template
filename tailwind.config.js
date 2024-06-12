@@ -1,4 +1,4 @@
-const { resolve } = require('./shared')
+const { resolve, isMp } = require('./shared')
 const cssMacro = require('weapp-tailwindcss/css-macro')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -19,6 +19,6 @@ module.exports = {
     })
   ],
   corePlugins: {
-    preflight: false,
+    preflight: !isMp,
   },
 };

@@ -3,12 +3,13 @@ const path = require("path");
 const isH5 = process.env.UNI_PLATFORM === "h5";
 const isApp = process.env.UNI_PLATFORM === "app";
 const WeappTailwindcssDisabled = isH5 || isApp;
-
+const isMp = !isH5 && !isApp
 const resolve = (p) => {
     return path.resolve(__dirname, p);
 };
 
 module.exports = {
     WeappTailwindcssDisabled,
-    resolve
+    resolve,
+    isMp
 }
