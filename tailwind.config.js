@@ -2,11 +2,12 @@ const { resolve, isMp } = require('./shared')
 const cssMacro = require('weapp-tailwindcss/css-macro')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./**/*.vue"].map(resolve),
+  content: ["./index.html", "pages/**/*.{vue,ts,js,wxml}"].map(resolve),
   theme: {
-    extend:{
-      colors:{
+    extend: {
+      colors: {
         primary: '#ff0000',
+        second: "#00ff00"
       }
     }
   },
