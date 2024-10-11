@@ -7,8 +7,8 @@
     <view class="after:content-['uni-app-vite-vue3-tailwind-hbuilderx-template'] text-sky-400"></view>
 
     <view class="text-slate-800">
-      <view>⚠️注意，请关闭微信开发者工具的代码热重载功能</view>
-      <view>否则可能会出现保持之后不起作用</view>
+      <view class="text-primary">⚠️注意，请关闭微信开发者工具的代码热重载功能</view>
+      <view class="text-primary">否则可能会出现保持之后不起作用</view>
     </view>
 
     <view class="text-gray-900/50 mb-2 before:content-['当前系统主题:']">

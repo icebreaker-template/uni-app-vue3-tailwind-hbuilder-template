@@ -7,7 +7,7 @@ import { plugins as postcssPlugins } from './postcss.config.cjs'
 const vitePlugins = [uni(), uvwt({
   rem2rpx: true,
   disabled: WeappTailwindcssDisabled,
-  tailwindcssBasedir: __dirname
+  tailwindcssBasedir: __dirname,
 })];
 
 // https://vitejs.dev/config/
