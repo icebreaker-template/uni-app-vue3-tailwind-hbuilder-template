@@ -1,6 +1,7 @@
 # uni-app-vue3-tailwind-hbuilder-template
 
 - [uni-app-vue3-tailwind-hbuilder-template](#uni-app-vue3-tailwind-hbuilder-template)
+  - [使用方式](#使用方式)
   - [官方文档](#官方文档)
   - [HbuilderX 智能提示工具](#hbuilderx-智能提示工具)
   - [Related projects](#related-projects)
@@ -10,6 +11,10 @@
   - [Bugs \& Issues](#bugs--issues)
 
 这是一个使用 `hbuilderx` + `uni-app` + `vue3` + `tailwind` 构建的小程序模板。可以直接在 `hbuilderx` 中导入运行。
+
+## 使用方式
+
+先在根目录下执行 `yarn` 安装包，然后导入 `HBuilderX` 运行
 
 ## 官方文档
 
