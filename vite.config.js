@@ -9,6 +9,7 @@ const vitePlugins = [
   UnifiedViteWeappTailwindcssPlugin({
     rem2rpx: true,
     disabled: WeappTailwindcssDisabled,
+    tailwindcssBasedir: __dirname,
   })
 ];
 
